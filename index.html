@@ -89,6 +89,20 @@ function keyUpHandler(e) {
     }
 }
 
+// collision detection
+
+function collisionDetection() {
+  for(var c = 0; c < brickColumnCount; c++) {
+    for(var r = 0; r < brickRowCount; r++) {
+      var b = bricks[c][r];
+      // calculations
+      if(x > b.x && x < b.x + brickWidth && y > b.y && b.y < brickHeight) {
+        dy = -dy;
+      }
+    }
+  }
+}
+
 // ball
 
 function drawBall() {
