@@ -99,6 +99,7 @@ function collisionDetection() {
     if(b.status == 1)  {
         if(x > b.x && x < b.x + brickWidth && y > b.y && b.y < brickHeight) {
         dy = -dy;
+        b.status = 0;
       }
     }
     }
