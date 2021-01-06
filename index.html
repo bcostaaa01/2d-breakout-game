@@ -96,9 +96,11 @@ function collisionDetection() {
     for(var r = 0; r < brickRowCount; r++) {
       var b = bricks[c][r];
       // calculations
-      if(x > b.x && x < b.x + brickWidth && y > b.y && b.y < brickHeight) {
+    if(b.status == 1)  {
+        if(x > b.x && x < b.x + brickWidth && y > b.y && b.y < brickHeight) {
         dy = -dy;
       }
+    }
     }
   }
 }
