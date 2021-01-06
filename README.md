@@ -1,5 +1,5 @@
 # 2d-breakout-game
 
-1st HTML file added.
+This is a project of a game called Breakout Game, a classic from the gaming universe.
 
-2nd CSS file added.
+Created using HTML, CSS and JavaScript.
