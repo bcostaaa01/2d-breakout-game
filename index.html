@@ -51,6 +51,8 @@ var brickHeight = 20;
 var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
+// user lives
+var lives = 3;
 
 // looping through the columns and rows, and create new bricks
 
@@ -133,6 +135,14 @@ function drawScore() {
   ctx.fillText("Score: " + score, 8, 20);
 }
 
+// user lives functions
+
+function drawLives() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
+}
+
 // ball
 
 function drawBall() {
@@ -195,9 +205,17 @@ function draw() {
       if(x > paddleX && x < paddleX + paddleWidth) {
         dy = -dy;
       } else {
-      alert("GAME OVER");
-      document.location.reload();
-      clearInterval(interval); // Chrome needs this to end the game
+        lives--; // decrements the user Lives
+        if(!lives) {
+          alert("GAME OVER");
+          document.location.reload();
+          clearInterval(interval); // Chrome needs this to end the game}
+      } else {
+        x = canvas.width / 2;
+        y = canvas.height - 30;
+        dx = 2
+        dy = -2;
+        paddleX = (canvas.width - paddle.width) / 2;
       }
     }
 
