@@ -64,6 +64,10 @@ for(var c = 0; c < brickColumnCount; c++) {
   }
 }
 
+// counting the score of the user
+
+var score = 0;
+
 // functions
 
 // controls functions
@@ -100,10 +104,19 @@ function collisionDetection() {
         if(x > b.x && x < b.x + brickWidth && y > b.y && b.y < brickHeight) {
         dy = -dy;
         b.status = 0;
+        score++;
       }
     }
     }
   }
+}
+
+// counting the score function
+
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: " + score, 8, 20);
 }
 
 // ball
@@ -153,6 +166,7 @@ function draw() {
     drawBricks(); // drawing the bricks
     drawBall(); // drawing the ball
     drawPaddle(); // drawing the paddle
+    drawScore(); // drawing the score
     collisionDetection(); // activating collision detection
 
 
